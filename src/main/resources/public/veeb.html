@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mangud</title>
+	<script>
+	
+	var connection=new XMLHttpRequest();
+        connection.onreadystatechange=receivedData;
+		
+	function saveMang(){
+			var title=document.getElementById("title").value;
+			var year=document.getElementById("year").value;
+			var cost=document.getElementById("cost").value;
+			connection.open("GET", "/lisa?title="+title+"&year="+year+"&cost="+cost);
+			connection.send();
+	}
+	
+	function receivedData(){
+            document.getElementById("response").innerHTML=connection.responseText;
+    }
+	
+    function displayAllMangud() {
+        connection.open("GET", "/mangud", true);
+        connection.send();
+    }
+    displayAllMangud();
+	
+	</script>
+
+<body>
+	
+	Mangude nimi: <input type="text" id="title"><br>
+	Mangude aasta: <input type="text" id="year"><br>
+	Hind: <input type="number" id="cost"><br>
+	<input type="submit" value="Submit" onclick="saveMang()">
+	
+	<div>
+	<p id="response"></p>
+	</div>
+
+<body>	
+	
+	
+	
+</head>
+</html>
