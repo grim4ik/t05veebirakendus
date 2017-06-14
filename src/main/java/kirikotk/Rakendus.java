@@ -39,9 +39,6 @@ public class Rakendus{
         telefoninimikiriTab.save(telefoninimekiri);
         return "Lisatud " + title + year + cost;
     }
-	/*
-	http://localhost:5246/lisa?title=TheSims3&year=2013&cost=30
-	*/
 	
     public static void main(String[] args) {
         System.getProperties().put("server.port", 2456);
